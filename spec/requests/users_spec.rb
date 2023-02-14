@@ -1,8 +1,6 @@
 require 'rails_helper'
 
-require 'rails_helper'
-
-RSpec.describe CategoriesController, type: :request do
+RSpec.describe UsersController, type: :request do
   describe 'GET user path' do
     subject { User.new(name: 'Tom', email: 'tom@mail.com', password: 'password') }
 
