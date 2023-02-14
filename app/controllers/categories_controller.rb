@@ -13,8 +13,6 @@ class CategoriesController < ApplicationController
       item.save
       @total << arr.reduce(:+)
     end
-
-    p @categories
   end
 
   def show

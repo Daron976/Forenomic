@@ -5,10 +5,10 @@ class DealingsController < ApplicationController
     @category_dealings = []
     @total = 0
     @user.groups.includes(:group_dealings)
-    .where(id: params[:category_id]).each do |item|
+      .where(id: params[:category_id]).each do |item|
       item.group_dealings.includes(:dealing).each do |el|
         @category_dealings << el.dealing
-        @total = @total + el.dealing[:amount].to_i
+        @total += el.dealing[:amount].to_i
       end
     end
   end
