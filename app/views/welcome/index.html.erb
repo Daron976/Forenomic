@@ -7,10 +7,18 @@
     <p class='welcome-msg'>Lets us help you manage your financial dealings</p>
 
     <div class='welcome-btn-container flex f-width'>
-      <%= link_to new_user_session_path do %>
-        <button type='button' name='login' class='btn'>
-          Login
-        </button>
+      <% if current_user %>
+        <%= link_to categories_path do %>
+          <button type='button' name='signup' class='btn'>
+            Home
+          </button>
+        <% end %>
+      <% else %>
+        <%= link_to new_user_session_path do %>
+          <button type='button' name='login' class='btn'>
+            Login
+          </button>
+        <% end %>
       <% end %>
       <%= link_to new_user_registration_path do %>
         <button type='button' name='signup' class='btn'>

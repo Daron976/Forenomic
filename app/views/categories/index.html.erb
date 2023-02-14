@@ -2,6 +2,11 @@
   <header class='flex f-width'>
     <nav class='flex row f-width'>
       <h1>Categories</h1>
+      <%= button_to destroy_user_session_path, method: :delete do %>
+        <span class="material-symbols-outlined">
+          logout
+        </span>
+      <% end %>
     </nav>
   </header>
 
