@@ -3,15 +3,18 @@ class CategoriesController < ApplicationController
   def index
     @user = current_user
     @categories = @user.groups
-    total = 0
-    @total_arr = []
+    @total = []
     @categories.includes(:group_dealings).each do |item|
+      arr = []
       item.group_dealings.includes(:dealing).each do |el|
-        total = total + el.dealing[:amount].to_i
+        arr << el.dealing[:amount]
       end
-      @total_arr << total
+      item.total = arr.reduce(:+)
+      item.save
+      @total << arr.reduce(:+)
     end
-    p @total_arr
+
+    p @categories
   end
 
   def show

@@ -13,7 +13,7 @@
 
   <div class='total-amount flex row f-width'>
     <p><strong>Total amount</strong></p>
-    <p>: <%= @total %></p>
+    <p>: <%= @total.reduce(:+) %></p>
   </div>
 
   <div class='categories-container f-width'>
@@ -27,7 +27,7 @@
           >
           </img>
           <h3 class='item-header'><%= item.name %></h3>
-          <p class='item-creation-date'><%= item.created_at.year %></p>
+          <p class='item-creation-date'><%= item.total %></p>
         </div>
       <% end %>
     <% end %>

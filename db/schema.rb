@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_13_100751) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_14_130637) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,6 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_13_100751) do
     t.string "icon", default: "https://raw.githubusercontent.com/Daron976/portfolio/main/images/7479956-removebg.png"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "total", default: 0, null: false
   end
 
   create_table "users", force: :cascade do |t|
