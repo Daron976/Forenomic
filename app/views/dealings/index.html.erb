@@ -11,9 +11,14 @@
   </header>
   <div class='total-amount flex row f-width'>
     <p><strong>Total amount</strong></p>
-    <p>: <%= @total %></p>
+    <p><%= @total %></p>
   </div>
   <div class='categories-container f-width'>
+    <% if @msg_bool %>
+      <p class='temp-msg'>
+        <em>Please add a transaction</em>
+      </p>
+    <% end %>
     <% if @category_dealings %>
       <% @category_dealings.each do |item| %>
         <div class='item-card flex row f-width'>

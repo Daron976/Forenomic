@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "welcome#index"
+  root "users#index"
 
-  resources :welcome, only: [:index]
+  resources :users
 
   resources :categories, only: [:index, :show, :destroy, :create, :new] do
     resources :dealings, only: [:index, :show, :destroy, :create, :new]

@@ -1,6 +1,7 @@
 class DealingsController < ApplicationController
   before_action :authenticate_user!
   def index
+    @msg_bool = true
     @user = current_user
     @category_dealings = []
     @total = 0
@@ -9,6 +10,7 @@ class DealingsController < ApplicationController
       item.group_dealings.includes(:dealing).each do |el|
         @category_dealings << el.dealing
         @total += el.dealing[:amount].to_i
+        @msg_bool = false
       end
     end
   end

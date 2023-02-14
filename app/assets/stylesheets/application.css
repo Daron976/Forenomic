@@ -146,6 +146,10 @@ nav button[type="submit"] {
   padding: 1rem;
 }
 
+.temp-msg {
+  text-align: center;
+}
+
 .create-container button,
 .welcome-btn-container button {
   background: var(--secondary);

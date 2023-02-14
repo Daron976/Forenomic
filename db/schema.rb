@@ -35,7 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_130637) do
     t.string "icon", default: "https://raw.githubusercontent.com/Daron976/portfolio/main/images/7479956-removebg.png"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "total", default: 0, null: false
+    t.integer "total", default: 0
   end
 
   create_table "users", force: :cascade do |t|

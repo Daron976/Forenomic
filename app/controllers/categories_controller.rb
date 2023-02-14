@@ -1,17 +1,21 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
   def index
+    @msg_bool = true
     @user = current_user
     @categories = @user.groups
     @total = []
     @categories.includes(:group_dealings).each do |item|
       arr = []
+      next unless item.group_dealings.includes(:dealing)
+
       item.group_dealings.includes(:dealing).each do |el|
         arr << el.dealing[:amount]
       end
       item.total = arr.reduce(:+)
       item.save
       @total << arr.reduce(:+)
+      @msg_bool = false
     end
   end
 

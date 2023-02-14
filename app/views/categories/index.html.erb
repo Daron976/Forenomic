@@ -12,10 +12,16 @@
 
   <div class='total-amount flex row f-width'>
     <p><strong>Total amount</strong></p>
-    <p>: <%= @total.reduce(:+) %></p>
+    <p><%=0 unless @total.reduce(:+) %></p>
   </div>
 
+  
   <div class='categories-container f-width'>
+    <% if @msg_bool %>
+      <p class='temp-msg'>
+        <em>Please add a category in order to add a transaction</em>
+      </p>
+    <% end %>
     <% @categories.each do |item| %>
       <%= link_to category_dealings_path(item.id) do %>
         <div class='item-card flex row f-width'>
