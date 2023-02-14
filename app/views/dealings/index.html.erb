@@ -10,8 +10,8 @@
     </nav>
   </header>
   <div class='total-amount flex row f-width'>
-    <p><strong>Total amount</strong></p>
-    <p><%= @total %></p>
+    <p>Total amount</p>
+    <p>$ <%= @total %></p>
   </div>
   <div class='categories-container f-width'>
     <% if @msg_bool %>
@@ -24,10 +24,10 @@
         <div class='item-card flex row f-width'>
           <div class='item-desc'>
             <h3 class='item-header'><%= item.name %></h3>
-            <p class='item-creation-date'><%= item.created_at %></p>
+            <p class='item-creation-date'><%= item.created_at.strftime('%a %d %b %Y') %></p>
           </div>
         
-          <p class='amount'><%= item.amount %></p>
+          <p class='amount'>$ <%= item.amount %></p>
         </div>
       <% end %>
     <% end %>

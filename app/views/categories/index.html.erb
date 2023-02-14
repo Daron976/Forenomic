@@ -11,8 +11,8 @@
   </header>
 
   <div class='total-amount flex row f-width'>
-    <p><strong>Total amount</strong></p>
-    <p><%=0 unless @total.reduce(:+) %></p>
+    <p>Total amount</p>
+    <p>$ <%= @total.reduce(:+) %></p>
   </div>
 
   
@@ -32,7 +32,14 @@
           >
           </img>
           <h3 class='item-header'><%= item.name %></h3>
-          <p class='item-creation-date'><%= item.total %></p>
+          <p class='item-creation-date'>
+            $ 
+            <% if !item.total %>
+              <%= 0 %>
+            <% else %>
+              <%= item.total %>
+            <% end %>
+          </p>
         </div>
       <% end %>
     <% end %>
