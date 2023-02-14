@@ -81,3 +81,17 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+group :development, :test do
+  gem 'database_cleaner'
+end
+
+gem 'bullet', group: 'development'
+
+gem 'xmpp4r', '~> 0.5.6'
+
+gem 'uniform_notifier'
+
+gem 'factory_bot_rails'
+
+gem 'faker'
