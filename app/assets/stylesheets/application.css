@@ -54,10 +54,27 @@ header {
 }
 
 nav {
-  justify-content: space-between;
+  justify-content: center;
   padding: 0 1rem;
   margin: 1rem 0;
   color: var(--general);
+}
+
+.transaction-page nav {
+  justify-content: space-between;
+}
+
+.transaction-page h1,
+.create-category h1 {
+  margin: auto;
+}
+
+nav a {
+  color: var(--general);
+}
+
+.create-transaction nav {
+  justify-content: space-between;
 }
 
 .welcome-wrapper {

@@ -1,12 +1,11 @@
-<header class='flex f-width'>
+<header class='flex f-width create-category'>
   <nav class='flex row f-width'>
-    <span class="material-symbols-outlined">
-      arrow_left
-    </span>
+    <%= link_to categories_path do %>
+      <span class="material-symbols-outlined">
+        arrow_left
+      </span>
+    <% end %>
     <h1>New Category</h1>
-    <span class="material-symbols-outlined">
-      menu
-    </span>
   </nav>
 </header>
 
