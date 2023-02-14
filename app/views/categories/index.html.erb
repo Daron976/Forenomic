@@ -1,0 +1,43 @@
+<section class='categories-page f-height flex'>
+  <header class='flex f-width'>
+    <nav class='flex row f-width'>
+      <span class="material-symbols-outlined">
+        arrow_left
+      </span>
+      <h1>Categories</h1>
+      <span class="material-symbols-outlined">
+        menu
+      </span>
+    </nav>
+  </header>
+
+  <div class='total-amount flex row f-width'>
+    <p><strong>Total amount</strong></p>
+    <p>: <%= @total %></p>
+  </div>
+
+  <div class='categories-container f-width'>
+    <% @categories.each do |item| %>
+      <%= link_to category_dealings_path(item.id) do %>
+        <div class='item-card flex row f-width'>
+          <img
+          class='item-img'
+          src=<%= item.icon %> 
+          alt='item icon'
+          >
+          </img>
+          <h3 class='item-header'><%= item.name %></h3>
+          <p class='item-creation-date'><%= item.created_at.year %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class='create-container'>
+    <%= link_to new_category_path do %>
+      <button type='button' name='create_category' class='btn f-width'>
+        Add a Category
+      </button>
+    <% end %>
+  </div>
+</section>

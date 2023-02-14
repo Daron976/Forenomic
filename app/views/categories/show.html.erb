@@ -1,0 +1,14 @@
+<section class='transaction-page'>
+  <div>
+    <p>Total amount: $124</p>
+  </div>
+  <% @category_dealings.each do |deal| %>
+    <%= render template: 'shared/transaction_card', locals: { item: deal }%>
+  <% end %>
+
+  <%= link_to new_category_dealing_path do %>
+    <button type='button' name='create_transaction' class'btn'>
+      Add a transaction
+    </button>
+  <% end %>
+</section>

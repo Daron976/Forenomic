@@ -1,0 +1,39 @@
+<section class='transaction-page'>
+  <header class='flex f-width'>
+    <nav class='flex row f-width'>
+      <span class="material-symbols-outlined">
+        arrow_left
+      </span>
+      <h1>Transactions</h1>
+      <span class="material-symbols-outlined">
+        menu
+      </span>
+    </nav>
+  </header>
+  <div class='total-amount flex row f-width'>
+    <p><strong>Total amount</strong></p>
+    <p>: <%= @total %></p>
+  </div>
+  <div class='categories-container f-width'>
+    <% if @category_dealings %>
+      <% @category_dealings.each do |item| %>
+        <div class='item-card flex row f-width'>
+          <div class='item-desc'>
+            <h3 class='item-header'><%= item.name %></h3>
+            <p class='item-creation-date'><%= item.created_at %></p>
+          </div>
+        
+          <p class='amount'><%= item.amount %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class='create-container'>
+    <%= link_to new_category_dealing_path do %>
+      <button type='button' name='create_transaction' class='btn f-width'>
+        Add a transaction
+      </button>
+    <% end %>
+  </div>
+</section>

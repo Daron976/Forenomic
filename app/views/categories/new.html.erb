@@ -1,0 +1,20 @@
+<header class='flex f-width'>
+  <nav class='flex row f-width'>
+    <span class="material-symbols-outlined">
+      arrow_left
+    </span>
+    <h1>New Category</h1>
+    <span class="material-symbols-outlined">
+      menu
+    </span>
+  </nav>
+</header>
+
+<div class='form-container flex f-width add-new'>
+  <%= form_with model: @dealings, url: categories_path do |f| %>
+    <%= f.text_field :name, placeholder: 'Category' %>
+    <div class="actions flex row f-width">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>
