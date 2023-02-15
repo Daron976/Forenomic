@@ -3,11 +3,13 @@ class DealingsController < ApplicationController
   def index
     @msg_bool = true
     @user = current_user
+    @category = Group.find(params[:category_id])
     @category_dealings = []
     @total = 0
     @user.groups.includes(:group_dealings)
       .where(id: params[:category_id]).each do |item|
-      item.group_dealings.includes(:dealing).each do |el|
+      item.group_dealings.includes(:dealing)
+      .order('created_at DESC').each do |el|
         @category_dealings << el.dealing
         @total += el.dealing[:amount].to_i
         @msg_bool = false
@@ -24,7 +26,7 @@ class DealingsController < ApplicationController
     if new_dealing.save
       GroupDealing.create(group_id: params[:category_id], dealing_id: new_dealing.id)
       flash[:success] = 'transaction has been created'
-      redirect_to categories_path
+      redirect_to category_dealings_path(params[:category_id])
     else
       flash.now[:error] = 'Transaction could not be saved'
       render new

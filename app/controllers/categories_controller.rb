@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   def index
     @msg_bool = true
     @user = current_user
-    @categories = @user.groups
+    @categories = @user.groups.order('created_at DESC')
     @total = []
     @categories.includes(:group_dealings).each do |item|
       arr = []

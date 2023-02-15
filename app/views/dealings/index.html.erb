@@ -10,8 +10,8 @@
     </nav>
   </header>
   <div class='total-amount flex row f-width'>
-    <p>Total amount</p>
-    <p>$ <%= @total %></p>
+    <p><em><%= @category.name %></em></p>
+    <p>Total amount: $ <%= @total %></p>
   </div>
   <div class='categories-container f-width'>
     <% if @msg_bool %>
