@@ -14,11 +14,11 @@ class CategoriesController < ApplicationController
       end
       item.total = arr.reduce(:+)
       item.save
-      if arr.length == 0
-        @total << 0
-      else
-        @total << arr.reduce(:+)
-      end
+      @total << if arr.empty?
+                  0
+                else
+                  arr.reduce(:+)
+                end
       @msg_bool = false
     end
   end

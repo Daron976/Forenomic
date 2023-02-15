@@ -9,7 +9,7 @@ class DealingsController < ApplicationController
     @user.groups.includes(:group_dealings)
       .where(id: params[:category_id]).each do |item|
       item.group_dealings.includes(:dealing)
-      .order('created_at DESC').each do |el|
+        .order('created_at DESC').each do |el|
         @category_dealings << el.dealing
         @total += el.dealing[:amount].to_i
         @msg_bool = false
