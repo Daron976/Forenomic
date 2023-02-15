@@ -1,15 +1,279 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+:root {
+  --main-color: #3778c2;
+  --text-color: #434b54;
+  --secondary: #5fb523;
+  --general: #fff;
+  --background: #f5f6f8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  flex-direction: row;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+nav a {
+  color: var(--general);
+}
+
+.f-width,
+.links a {
+  width: 100%;
+}
+
+.f-height {
+  height: 100%;
+}
+
+img {
+  width: 3rem;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'proxima-nova', sans-serif;
+  height: 100%;
+  background: var(--background);
+}
+
+header {
+  background: var(--main-color);
+}
+
+nav {
+  justify-content: center;
+  padding: 0 1rem;
+  margin: 1rem 0;
+  color: var(--general);
+}
+
+.categories-page nav {
+  justify-content: space-between;
+}
+
+nav button[type="submit"] {
+  padding: 0;
+  border: none;
+  border-bottom: none;
+  height: auto;
+  background: none;
+  color: var(--general);
+}
+
+.categories-page h1 {
+  margin: auto;
+}
+
+.transaction-page nav {
+  justify-content: space-between;
+}
+
+.transaction-page h1,
+.create-category h1 {
+  margin: auto;
+}
+
+.create-transaction nav {
+  justify-content: space-between;
+}
+
+.welcome-wrapper {
+  padding: 3rem;
+  background: var(--main-color);
+}
+
+.welcome-page {
+  background: var(--general);
+  color: black;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 1rem;
+}
+
+.welcome-page img {
+  width: 5rem;
+  animation: logo 0.9s ease-in-out infinite both;
+}
+
+.welcome-btn-container {
+  gap: 1rem;
+}
+
+.welcome-msg {
+  text-align: center;
+  width: 70%;
+}
+
+.app-name {
+  font-weight: 900;
+  font-size: 2.5rem;
+}
+
+.item-card {
+  background: var(--general);
+  margin: 1rem 0;
+  justify-content: space-between;
+  border-radius: 5px;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.categories-page {
+  display: flex;
+  align-items: center;
+}
+
+.create-container {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  padding: 1rem;
+}
+
+.temp-msg {
+  text-align: center;
+}
+
+.create-container button,
+.welcome-btn-container button {
+  background: var(--secondary);
+  border: none;
+  color: var(--general);
+  border-radius: 5px;
+  max-width: 100%;
+  height: 3.5rem;
+  padding: 0.5rem;
+}
+
+.welcome-btn-container a {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.welcome-btn-container button {
+  width: 60%;
+}
+
+.form-container button,
+input[type="submit"] {
+  border: none;
+  background-color: var(--secondary);
+  padding: 8px;
+  color: var(--header-color);
+}
+
+#checkbox {
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: none;
+}
+
+#checkbox input {
+  width: 1rem;
+}
+
+form :nth-last-child(n + 2) {
+  height: 3rem;
+  border: none;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.25);
+  width: 100%;
+  padding: 0.5rem;
+}
+
+form :nth-last-child(n + 2):focus {
+  outline: none;
+}
+
+.reset form,
+.add-new form {
+  width: 100%;
+}
+
+.reset h2 {
+  margin: 1rem 0;
+}
+
+.links {
+  gap: 1rem;
+}
+
+.reset .links {
+  gap: 0;
+}
+
+.actions {
+  justify-content: center;
+}
+
+.reset .actions {
+  align-items: center;
+}
+
+.categories-container {
+  margin: 0.5rem 0;
+  max-height: 30rem;
+  padding: 0 2rem;
+  overflow-y: scroll;
+}
+
+.total-amount {
+  padding: 1rem;
+  background: var(--general);
+  justify-content: space-between;
+  box-shadow: 1px 1px 3px var(--text-color);
+}
+
+.form-container {
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding-bottom: 5rem;
+}
+
+.form-container input[type="submit"],
+.form-container button {
+  color: var(--general);
+  width: 60%;
+  margin: 1rem 0 0;
+  border-radius: 0;
+  height: 3rem;
+}
+
+.links a {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+
+@keyframes logo {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

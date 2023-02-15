@@ -1,0 +1,55 @@
+<section class='categories-page f-height flex'>
+  <header class='flex f-width'>
+    <nav class='flex row f-width'>
+      <h1>Categories</h1>
+      <%= button_to destroy_user_session_path, method: :delete do %>
+        <span class="material-symbols-outlined">
+          logout
+        </span>
+      <% end %>
+    </nav>
+  </header>
+
+  <div class='total-amount flex row f-width'>
+    <p>Total amount</p>
+    <p>$ <%= @total.reduce(:+) %></p>
+  </div>
+
+  
+  <div class='categories-container f-width'>
+    <% if @msg_bool %>
+      <p class='temp-msg'>
+        <em>Please add a category in order to add a transaction</em>
+      </p>
+    <% end %>
+    <% @categories.each do |item| %>
+      <%= link_to category_dealings_path(item.id) do %>
+        <div class='item-card flex row f-width'>
+          <img
+          class='item-img'
+          src=<%= item.icon %> 
+          alt='item icon'
+          >
+          </img>
+          <h3 class='item-header'><%= item.name %></h3>
+          <p class='item-creation-date'>
+            $ 
+            <% if !item.total %>
+              <%= 0 %>
+            <% else %>
+              <%= item.total %>
+            <% end %>
+          </p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class='create-container'>
+    <%= link_to new_category_path do %>
+      <button type='button' name='create_category' class='btn f-width'>
+        Add a Category
+      </button>
+    <% end %>
+  </div>
+</section>

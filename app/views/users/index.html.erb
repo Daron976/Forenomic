@@ -1,0 +1,30 @@
+<section class='welcome-wrapper flex f-height f-width'>
+  <div class='welcome-page flex f-height f-width'>
+    <h1 class='app-name'>Forenomic</h1>
+
+    <img src='https://github.com/Daron976/portfolio/blob/main/images/management.png?raw=true' alt='Forenomic logo'></img>
+
+    <p class='welcome-msg'>Lets us help you manage your financial dealings</p>
+
+    <div class='welcome-btn-container flex f-width'>
+      <% if current_user %>
+        <%= link_to categories_path do %>
+          <button type='button' name='signup' class='btn'>
+            Home
+          </button>
+        <% end %>
+      <% else %>
+        <%= link_to new_user_session_path do %>
+          <button type='button' name='login' class='btn'>
+            Login
+          </button>
+        <% end %>
+      <% end %>
+      <%= link_to new_user_registration_path do %>
+        <button type='button' name='signup' class='btn'>
+          Sign up
+        </button>
+      <% end %>
+    </div>
+  </div>
+</section>

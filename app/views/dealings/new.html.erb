@@ -1,0 +1,25 @@
+<header class='flex f-width create-transaction'>
+  <nav class='flex row f-width'>
+    <%= link_to category_dealings_path do %>
+      <span class="material-symbols-outlined">
+        arrow_left
+      </span>
+    <% end %>
+    <h1>New Transaction</h1>
+    <%= link_to categories_path do %>
+      <span class="material-symbols-outlined">
+        home
+      </span>
+    <% end %>
+  </nav>
+</header>
+
+<div class='form-container flex f-width'>
+  <%= form_with model: @dealings, url: category_dealings_path do |f| %>
+    <%= f.text_field :name, placeholder: 'Transaction' %>
+    <%= f.number_field :amount, placeholder: 'Amount ($)' %>
+    <div class="actions flex row f-width">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

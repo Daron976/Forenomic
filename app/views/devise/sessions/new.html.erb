@@ -1,0 +1,26 @@
+<header class='flex f-width'>
+  <nav class='flex row f-width'>
+    <h1>Welcome Back</h1>
+  </nav>
+</header>
+
+<div class='form-container flex f-width'>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+    <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password" %>
+    <% if devise_mapping.rememberable? %>
+      <div class="flex row" id="checkbox">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+
+    <div class="actions flex row f-width">
+      <%= f.submit "Log in" %>
+    </div>
+  <% end %>
+  <div class='links f-width flex'>
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

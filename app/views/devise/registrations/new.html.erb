@@ -1,0 +1,22 @@
+<header class='flex f-width'>
+  <nav class='flex row f-width'>
+    <h1>Regisration</h1>
+  </nav>
+</header>
+
+<div class='form-container flex f-width'>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Full name" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password Confirmation (6 minimum characters)" %>
+    <div class="actions flex row f-width">
+      <%= f.submit "Sign up" %>
+    </div>
+  <% end %>
+  <div class='links f-width flex'>
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
+
